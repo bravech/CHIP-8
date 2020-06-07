@@ -2,11 +2,15 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <ios>
+#define WIN_SIZE 400
+
 class Chip8Emu
 {
 public:
 	int main();
-	int init();
+	int run();
 	Chip8Emu(std::string rom_path);
 	~Chip8Emu();
 private:
@@ -16,7 +20,7 @@ private:
 	uint8_t* code;
 
 	sf::Uint8 screen[64 * 32];
-	sf::RenderWindow window;
+	sf::RenderWindow* window;
 	sf::Event event;
 };
 

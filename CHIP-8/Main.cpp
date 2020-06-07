@@ -4,5 +4,5 @@
 
 int main()
 {
-	Chip8Emu my_emu("asdf");
+	Chip8Emu my_emu("Pong.ch8");
 }
