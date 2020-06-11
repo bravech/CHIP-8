@@ -7,8 +7,6 @@
 
 int main()
 {
-	Chip8Emu my_emu("Pong.ch8");
+	Chip8Emu my_emu("MAZE");
 	my_emu.run();
-	int a;
-	std::cin >> a;
 }

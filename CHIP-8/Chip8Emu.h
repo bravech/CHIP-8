@@ -8,11 +8,14 @@
 #include <thread>
 #include <chrono>
 #include <mutex>
-#define WIN_SIZE 400
+#include <stack>
+#define DISPLAY_WIDTH 64
+#define DISPLAY_HEIGHT 32
+#define SCREEN_SCALE 8
 #define TIMER_HZ 60
 #define CPU_HZ 500
-#define DRAW_HZ 60
-#define DEBUG true
+#define DRAW_HZ 1
+#define DEBUG false
 
 class Chip8Emu
 {
@@ -33,10 +36,13 @@ private:
 	std::mutex soundTimerMutex;
 	uint8_t delayTimer;
 	std::mutex delayTimerMutex;
+	bool beepPlaying;
+	bool running;
+	std::stack<uint16_t> callstack;
 	
 
 
-	sf::Uint8 screen[64 * 32];
+	sf::Uint8 screen[64 * 32 * 4];
 	sf::RenderWindow window;
 	sf::Event event;
 };
